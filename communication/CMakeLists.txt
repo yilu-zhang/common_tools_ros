@@ -9,6 +9,7 @@ project(communication)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
+  nodelet
   roscpp
   rospy
   std_msgs
@@ -122,7 +123,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES learning_communication
-   CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs message_runtime
+   CATKIN_DEPENDS geometry_msgs nodelet roscpp rospy std_msgs message_runtime
 #  DEPENDS system_lib
 )
 
@@ -135,6 +136,7 @@ catkin_package(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+        ${Boost_INCLUDE_DIRS}
 )
 
 add_executable(talker src/talker.cpp)
@@ -144,6 +146,10 @@ add_dependencies(talker ${PROJECT_NAME}_generate_messages_cpp)
 add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 add_dependencies(talker ${PROJECT_NAME}_generate_messages_cpp)
+
+add_library(nodelet_plus src/nodelet_plus.cpp)
+target_link_libraries(nodelet_plus ${BOOST_LIBRARIES}
+                                        ${catkin_LIBRARIES})
 
 #add_executable(server src/server.cpp)
 #target_link_libraries(server ${catkin_LIBRARIES})
