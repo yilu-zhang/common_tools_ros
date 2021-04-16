@@ -20,6 +20,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   cv_bridge
 )
+find_package(Eigen3 REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -138,7 +139,8 @@ add_executable(save_image src/save_image.cpp)
 target_link_libraries(save_image ${catkin_LIBRARIES} ${OpenCV_LIBS})
 
 add_executable(tf_save src/tf_save.cpp)
-target_link_libraries(tf_save ${catkin_LIBRARIES})
+target_include_directories(tf_save SYSTEM PUBLIC "${EIGEN3_INCLUDE_DIR}")
+target_link_libraries(tf_save ${catkin_LIBRARIES} ${EIGEN3_LIBRARIES})
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/show_image_raw.cpp
