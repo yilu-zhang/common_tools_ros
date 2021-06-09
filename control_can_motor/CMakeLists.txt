@@ -124,8 +124,8 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
-add_executable(listener1 src/listener1.cpp)
-target_link_libraries(listener1 ${catkin_LIBRARIES})
+#add_executable(listener1 src/listener1.cpp)
+#target_link_libraries(listener1 ${catkin_LIBRARIES})
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/control_can_motor.cpp

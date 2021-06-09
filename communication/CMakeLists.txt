@@ -139,17 +139,17 @@ include_directories(
         ${Boost_INCLUDE_DIRS}
 )
 
-add_executable(talker src/talker.cpp)
-target_link_libraries(talker ${catkin_LIBRARIES})
-add_dependencies(talker ${PROJECT_NAME}_generate_messages_cpp)
+#add_executable(talker src/talker.cpp)
+#target_link_libraries(talker ${catkin_LIBRARIES})
+#add_dependencies(talker ${PROJECT_NAME}_generate_messages_cpp)
 
-add_executable(listener src/listener.cpp)
-target_link_libraries(listener ${catkin_LIBRARIES})
-add_dependencies(talker ${PROJECT_NAME}_generate_messages_cpp)
+#add_executable(listener src/listener.cpp)
+#target_link_libraries(listener ${catkin_LIBRARIES})
+#add_dependencies(talker ${PROJECT_NAME}_generate_messages_cpp)
 
-add_library(nodelet_plus src/nodelet_plus.cpp)
-target_link_libraries(nodelet_plus ${BOOST_LIBRARIES}
-                                        ${catkin_LIBRARIES})
+#add_library(nodelet_plus src/nodelet_plus.cpp)
+#target_link_libraries(nodelet_plus ${BOOST_LIBRARIES}
+#                                        ${catkin_LIBRARIES})
 
 #add_executable(server src/server.cpp)
 #target_link_libraries(server ${catkin_LIBRARIES})
