@@ -141,6 +141,10 @@ target_link_libraries(save_image ${catkin_LIBRARIES} ${OpenCV_LIBS})
 add_executable(tf_save src/tf_save.cpp)
 target_include_directories(tf_save SYSTEM PUBLIC "${EIGEN3_INCLUDE_DIR}")
 target_link_libraries(tf_save ${catkin_LIBRARIES} ${EIGEN3_LIBRARIES})
+
+add_executable(apriltag_test src/apriltag_test.cpp)
+target_include_directories(apriltag_test SYSTEM PUBLIC "${EIGEN3_INCLUDE_DIR}")
+target_link_libraries(apriltag_test ${catkin_LIBRARIES} ${EIGEN3_LIBRARIES})
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/show_image_raw.cpp
